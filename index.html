@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="gMap">
+
+<head>
+    <title> Angular Google-Map Demo</title>
+    <script src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
+    <script type="text/javascript" src='bower_components/lodash/dist/lodash.min.js'></script>
+    <script type="text/javascript" src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
+    <script type="text/javascript" src='js/main.js'></script>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="mapCtrl" ng-init="dataInit()">
+    <div id="map_canvas">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+            <ui-gmap-markers models="initMarkers" coords="'self'" icon="'icon'">
+                <ui-gmap-windows options = "options">
+                    <!-- <div> Parking Lot {{id}} </div> -->
+                </ui-gmap-windows>
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+    </div>
+</body>
+
+</html>
