@@ -9,6 +9,9 @@ angular.module('gMap', ['uiGmapgoogle-maps'])
             },
             zoom: 8
         };
+        $scope.map.showTraffic = true;
+        $scope.map.showWeather = true;
+
         $scope.initMarkers = [];
         $scope.dataInit = function() {
             $log.info('init data');

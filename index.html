@@ -3,7 +3,7 @@
 
 <head>
     <title> Angular Google-Map Demo</title>
-    <script src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script src='https://maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places&sensor=false&language=en&v=3.17'></script>
     <script type="text/javascript" src='bower_components/angular/angular.min.js'></script>
     <script type="text/javascript" src='bower_components/lodash/dist/lodash.min.js'></script>
     <script type="text/javascript" src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
@@ -15,11 +15,18 @@
     <div id="map_canvas">
         <ui-gmap-google-map center='map.center' zoom='map.zoom'>
             <ui-gmap-markers models="initMarkers" coords="'self'" icon="'icon'">
-                <ui-gmap-windows options = "options">
-                    <!-- <div> Parking Lot {{id}} </div> -->
+                <ui-gmap-windows options="options">
+                    <div ng-non-bindable> Parking Lot {{id}} </div>
                 </ui-gmap-windows>
             </ui-gmap-markers>
+            <ui-gmap-layer type="TrafficLayer" show="map.showTraffic"></ui-gmap-layer>
+            <ui-gmap-layer namespace="weather" type="WeatherLayer" show="map.showWeather"></ui-gmap-layer>
+
         </ui-gmap-google-map>
+    </div>
+    <div>
+        Traffic:<input type="checkbox" text="TrafficLayer On/Off" ng-model="map.showTraffic">
+        Weather:<input type="checkbox" text="Weather On/Off" ng-model="map.showWeather">
     </div>
 </body>
 
